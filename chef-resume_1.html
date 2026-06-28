@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>اعظم یزدی‌نژاد · آشپز و تولیدکننده محصولات پروتئینی</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0f0f0e;
+    --surface: #1a1917;
+    --card: #1e1d1b;
+    --card-hover: #252320;
+    --gold: #c9a85c;
+    --gold-light: #e8c97a;
+    --gold-dim: #7a6438;
+    --text: #f0ede8;
+    --text-muted: #9b9590;
+    --text-dim: #5a5650;
+    --border: rgba(201,168,92,0.18);
+    --border-subtle: rgba(255,255,255,0.06);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Vazirmatn', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(15,15,14,0.93);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+  .nav-logo { font-size: 13px; color: var(--gold); letter-spacing: 0.08em; font-weight: 500; }
+  .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+  .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6rem 2rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 65% 55% at 50% 0%, rgba(201,168,92,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+  .hero h1 {
+    font-size: clamp(2.6rem, 6.5vw, 4.8rem);
+    font-weight: 700;
+    line-height: 1.15;
+    background: linear-gradient(135deg, #f0ede8 0%, #c9a85c 55%, #f0ede8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.8rem;
+  }
+  .hero-subtitle {
+    font-size: clamp(0.95rem, 2.2vw, 1.2rem);
+    font-weight: 300;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    margin-bottom: 0.5rem;
+  }
+  .hero-location {
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 0.12em;
+    margin-bottom: 2rem;
+  }
+  .hero-divider {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(to left, transparent, var(--gold), transparent);
+    margin: 0 auto 2rem;
+  }
+  .hero-desc {
+    max-width: 580px;
+    color: var(--text-muted);
+    font-size: 14.5px;
+    line-height: 2;
+    margin-bottom: 2.5rem;
+  }
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+  }
+  .hero-tag {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--gold-dim);
+    border: 1px solid rgba(201,168,92,0.25);
+    padding: 4px 14px;
+    text-transform: uppercase;
+  }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+  .btn-primary, .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.7rem 1.8rem;
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s;
+    border: none;
+  }
+  .btn-primary {
+    background: rgba(201,168,92,0.1);
+    border: 1px solid var(--gold-dim);
+    color: var(--gold);
+  }
+  .btn-primary:hover { background: rgba(201,168,92,0.18); border-color: var(--gold); }
+  .btn-secondary {
+    background: transparent;
+    border: 1px solid var(--border-subtle);
+    color: var(--text-muted);
+  }
+  .btn-secondary:hover { border-color: var(--text-dim); color: var(--text); }
+
+  /* SECTION */
+  section { padding: 5.5rem 0; }
+  .container { max-width: 920px; margin: 0 auto; padding: 0 2rem; }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to left, transparent, var(--border));
+  }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 3.5rem; align-items: start; }
+  .about-text h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 1.2rem; line-height: 1.35; }
+  .about-text p { color: var(--text-muted); line-height: 2; font-size: 14px; margin-bottom: 1rem; }
+  .about-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--border-subtle);
+    overflow: hidden;
+  }
+  .stat-item {
+    background: var(--card);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s;
+  }
+  .stat-item:hover { background: var(--card-hover); }
+  .stat-label { font-size: 13px; color: var(--text-muted); }
+  .stat-value { font-size: 1.7rem; font-weight: 700; color: var(--gold); }
+  .stat-unit { font-size: 12px; color: var(--text-dim); font-weight: 400; margin-right: 3px; }
+
+  /* SERVICES */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1px;
+    background: var(--border-subtle);
+  }
+  .service-card {
+    background: var(--card);
+    padding: 2rem 1.75rem;
+    transition: background 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 0; left: 0;
+    height: 2px;
+    background: linear-gradient(to left, var(--gold), transparent);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s;
+  }
+  .service-card:hover { background: var(--card-hover); }
+  .service-card:hover::after { transform: scaleX(1); }
+  .service-card.featured { background: #221f16; }
+  .service-card.featured:hover { background: #2a2619; }
+  .featured-badge {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    border: 1px solid var(--gold-dim);
+    padding: 2px 10px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+  .service-icon { font-size: 1.8rem; margin-bottom: 0.9rem; }
+  .service-card h3 { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 0.6rem; }
+  .service-card p { font-size: 13px; color: var(--text-muted); line-height: 1.85; }
+
+  /* TIMELINE */
+  .timeline { position: relative; padding-right: 2rem; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    right: 0; top: 8px; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--gold-dim), transparent);
+  }
+  .timeline-item { position: relative; margin-bottom: 3rem; }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    right: -2.35rem; top: 7px;
+    width: 9px; height: 9px;
+    background: var(--gold);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px var(--bg);
+  }
+  .timeline-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.4rem; flex-wrap: wrap; }
+  .timeline-year { font-size: 11px; color: var(--gold); letter-spacing: 0.1em; font-weight: 500; }
+  .timeline-place { font-size: 11px; color: var(--text-dim); }
+  .timeline-item h3 { font-size: 1.05rem; font-weight: 500; margin-bottom: 0.5rem; }
+  .timeline-item p { font-size: 13px; color: var(--text-muted); line-height: 1.85; }
+
+  /* PRODUCTS */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1px;
+    background: var(--border-subtle);
+    margin-bottom: 2rem;
+  }
+  .product-item {
+    background: var(--card);
+    padding: 1.5rem;
+    text-align: center;
+    transition: background 0.2s;
+  }
+  .product-item:hover { background: var(--card-hover); }
+  .product-emoji { font-size: 2rem; margin-bottom: 0.6rem; }
+  .product-item h4 { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 0.3rem; }
+  .product-item p { font-size: 11px; color: var(--text-muted); }
+  .products-note {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 1.25rem 1.5rem;
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.85;
+    text-align: center;
+  }
+  .products-note strong { color: var(--gold); font-weight: 500; }
+
+  /* CONTACT */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+  .contact-info h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; }
+  .contact-info p { font-size: 14px; color: var(--text-muted); line-height: 1.9; margin-bottom: 1.5rem; }
+  .contact-items { display: flex; flex-direction: column; gap: 1px; background: var(--border-subtle); }
+  .contact-item {
+    background: var(--card);
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 14px;
+  }
+  .contact-item-icon { font-size: 1.1rem; }
+  .contact-item-label { font-size: 11px; color: var(--text-dim); display: block; margin-bottom: 1px; }
+  .contact-item-value { color: var(--text); font-weight: 500; direction: ltr; text-align: right; }
+  .contact-form { display: flex; flex-direction: column; gap: 0.9rem; }
+  .form-group label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+  }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    background: var(--card);
+    border: 1px solid var(--border-subtle);
+    color: var(--text);
+    padding: 0.7rem 1rem;
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+    border-radius: 0;
+    -webkit-appearance: none;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus { border-color: var(--gold-dim); }
+  .form-group textarea { min-height: 110px; resize: vertical; }
+  .form-group select option { background: #1e1d1b; }
+  .btn-submit {
+    width: 100%;
+    padding: 0.85rem;
+    background: transparent;
+    border: 1px solid var(--gold-dim);
+    color: var(--gold);
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all 0.25s;
+  }
+  .btn-submit:hover { background: rgba(201,168,92,0.08); border-color: var(--gold); }
+
+  /* FOOTER */
+  .gold-rule { width: 100%; height: 1px; background: linear-gradient(to left, transparent, var(--gold-dim), transparent); border: none; }
+  footer { padding: 2rem; text-align: center; font-size: 12px; color: var(--text-dim); }
+
+  /* SUCCESS */
+  #success-msg {
+    display: none;
+    text-align: center;
+    color: var(--gold);
+    font-size: 14px;
+    padding: 1.5rem;
+    border: 1px solid rgba(201,168,92,0.2);
+    background: var(--card);
+    margin-top: 0.5rem;
+  }
+
+  /* ZHAMBIST BRAND */
+  .brand-section {
+    padding: 5.5rem 0;
+    background: #0c0b09;
+    position: relative;
+    overflow: hidden;
+  }
+  .brand-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(201,168,92,0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .brand-wordmark {
+    font-size: clamp(3rem, 10vw, 7rem);
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    background: linear-gradient(135deg, #7a6438 0%, #c9a85c 40%, #e8c97a 60%, #c9a85c 80%, #7a6438 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+  }
+  .brand-tagline {
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+  }
+  .brand-pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border-subtle);
+    max-width: 720px;
+    margin: 0 auto 2.5rem;
+  }
+  .brand-pillar {
+    background: #141310;
+    padding: 1.75rem 1.5rem;
+    text-align: center;
+    transition: background 0.2s;
+  }
+  .brand-pillar:hover { background: #1a1815; }
+  .brand-pillar-icon { font-size: 1.5rem; margin-bottom: 0.6rem; }
+  .brand-pillar h4 { font-size: 13px; font-weight: 500; color: var(--gold); margin-bottom: 0.4rem; }
+  .brand-pillar p { font-size: 12px; color: var(--text-muted); line-height: 1.7; }
+  .brand-desc {
+    max-width: 560px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.95;
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 2rem;
+  }
+  .brand-desc strong { color: var(--gold); font-weight: 500; }
+
+  /* nav brand highlight */
+  .nav-brand-tag {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--gold-dim);
+    border: 1px solid rgba(201,168,92,0.2);
+    padding: 2px 8px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  @media (max-width: 680px) {
+    .brand-pillars { grid-template-columns: 1fr; }
+
+    .about-grid, .contact-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .hero h1 { font-size: 2.4rem; }
+    .hero-ctas { flex-direction: column; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">✦ اعظم یزدی‌نژاد</span>
+  <ul class="nav-links">
+    <li><a href="#about">درباره من</a></li>
+    <li><a href="#services">خدمات</a></li>
+    <li><a href="#journey">مسیر کاری</a></li>
+    <li><a href="#zhambist" style="color:var(--gold)">ZHAMBIST</a></li>
+    <li><a href="#products">محصولات</a></li>
+    <li><a href="#contact">تماس</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">کارشناس آشپزی بین‌الملل</p>
+  <h1>اعظم یزدی‌نژاد</h1>
+  <p class="hero-subtitle">آشپز · شیرینی‌پز · تولیدکننده محصولات پروتئینی</p>
+  <p class="hero-location">📍 مشهد، ایران</p>
+  <div class="hero-divider"></div>
+  <p class="hero-desc">
+    با بیش از ۱۰ سال تجربه در آشپزی، شیرینی‌پزی و قنادی، و ۳ سال تخصص در تولید سوسیس، کالباس و محصولات پروتئینی سالم — هر سفارش را با عشق و دقت انجام می‌دهم.
+  </p>
+  <div class="hero-tags">
+    <span class="hero-tag">فینگرفود</span>
+    <span class="hero-tag">غذای خانگی</span>
+    <span class="hero-tag">شیرینی‌پزی</span>
+    <span class="hero-tag">قنادی</span>
+    <span class="hero-tag">محصولات پروتئینی</span>
+    <span class="hero-tag" style="color:var(--gold); border-color:var(--gold-dim); font-weight:700">ZHAMBIST</span>
+  </div>
+
+</section>
+
+<hr class="gold-rule">
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">درباره من</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <h2>از عشق به آشپزی تا تولید حرفه‌ای</h2>
+        <p>
+          بعد از دریافت مدرک لیسانس کارشناسی آشپزی بین‌الملل، کارم را با گرفتن سفارش فینگرفود و غذاهای خانگی شروع کردم. در طول این ۱۰ سال، همیشه باور داشتم که غذا باید با عشق پخته شود تا روی سفره‌ی مهمان‌ها بنشیند.
+        </p>
+        <p>
+          شیرینی‌پزی و قنادی برایم یک عشق قدیمی است — هر وقت فرصت داشته باشم، با ذوق و اشتیاق مشغول خلق انواع شیرینی و محصولات قنادی می‌شوم.
+        </p>
+        <p>
+          در ۳ سال اخیر، بیشتر تمرکزم روی توسعه کارگاه تولید سوسیس، کالباس و محصولات پروتئینی سالم است — چون باور دارم که تغذیه سالم حق هر خانواده‌ایست.
+        </p>
+      </div>
+      <div>
+        <div class="about-stats">
+          <div class="stat-item">
+            <span class="stat-label">سال‌ها تجربه</span>
+            <span class="stat-value">۱۰<span class="stat-unit">+</span></span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">تخصص پروتئینی</span>
+            <span class="stat-value">۳<span class="stat-unit">سال</span></span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">مدرک تحصیلی</span>
+            <span class="stat-value" style="font-size:1rem; text-align:left; color:var(--text)">لیسانس آشپزی بین‌الملل</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">شهر فعالیت</span>
+            <span class="stat-value" style="font-size:1rem; color:var(--text)">مشهد</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="gold-rule">
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">خدمات</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card featured">
+        <span class="featured-badge">تمرکز اصلی</span>
+        <div class="service-icon">🥩</div>
+        <h3>تولید سوسیس، کالباس و محصولات پروتئینی</h3>
+        <p style="margin-bottom:0.6rem">برند <strong style="color:var(--gold)">ZHAMBIST</strong> — محصولات پروتئینی سالم، باکیفیت و خوش‌طعم از کارگاه تخصصی ما در مشهد</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🥗</div>
+        <h3>فینگرفود و پیش‌غذا</h3>
+        <p>انواع فینگرفود خلاقانه و متنوع برای مجالس، جشن‌ها و مهمانی‌ها با طراحی جذاب و طعم عالی</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🍲</div>
+        <h3>غذاهای خانگی</h3>
+        <p>پخت انواع غذاهای خانگی و فست‌فود با مواد اولیه تازه و طعمی دلچسب</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🎂</div>
+        <h3>شیرینی‌پزی و قنادی</h3>
+        <p>تهیه انواع شیرینی، کیک و محصولات قنادی با ذوق و اشتیاق — از شیرینی‌های سنتی تا مدل‌های مدرن</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="gold-rule">
+
+<!-- JOURNEY -->
+<section id="journey">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">مسیر کاری</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <span class="timeline-year">۱۴۰۱ تاکنون</span>
+          <span class="timeline-place">کارگاه تخصصی · مشهد</span>
+        </div>
+        <h3>تولید حرفه‌ای سوسیس، کالباس و محصولات پروتئینی</h3>
+        <p>ورود به حوزه تولید تخصصی محصولات پروتئینی با هدف ارائه غذای سالم و باکیفیت. تمرکز اصلی روی توسعه کارگاه، بهبود فرمول‌بندی محصولات و ارتقاء مستمر کیفیت تولید.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <span class="timeline-year">در طول سال‌ها فعالیت</span>
+          <span class="timeline-place">مشهد</span>
+        </div>
+        <h3>شیرینی‌پزی و قنادی تخصصی</h3>
+        <p>به‌موازات سایر فعالیت‌ها، همیشه دلم در دنیای شیرینی و قنادی بوده. تهیه انواع شیرینی، کیک و محصولات قنادی برای سفارش‌های خاص و مناسبتی.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <span class="timeline-year">از ابتدا تاکنون</span>
+          <span class="timeline-place">مشهد</span>
+        </div>
+        <h3>آشپزی خانگی و فینگرفود</h3>
+        <p>شروع مسیر حرفه‌ای با پذیرش سفارش فینگرفود و غذاهای خانگی پس از فارغ‌التحصیلی. ارائه خدمات متنوع شامل غذاهای ایرانی و فست‌فود.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <span class="timeline-year">پایه تحصیلی</span>
+        </div>
+        <h3>لیسانس آشپزی بین‌الملل</h3>
+        <p>دریافت مدرک کارشناسی در رشته آشپزی بین‌الملل و آغاز مسیر حرفه‌ای با پشتوانه علمی و آکادمیک.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<hr class="gold-rule">
+
+<!-- ZHAMBIST BRAND -->
+<section class="brand-section" id="zhambist">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">برند ما</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="brand-wordmark">ZHAMBIST</div>
+    <p class="brand-tagline">محصولات پروتئینی · مشهد · ایران</p>
+    <div class="brand-pillars">
+      <div class="brand-pillar">
+        <div class="brand-pillar-icon">🌿</div>
+        <h4>مواد اولیه سالم</h4>
+        <p>بدون مواد نگهدارنده مضر، با بالاترین استانداردهای بهداشتی</p>
+      </div>
+      <div class="brand-pillar">
+        <div class="brand-pillar-icon">🏭</div>
+        <h4>کارگاه تخصصی</h4>
+        <p>تولید در محیط کاملاً بهداشتی با تجهیزات حرفه‌ای</p>
+      </div>
+      <div class="brand-pillar">
+        <div class="brand-pillar-icon">✨</div>
+        <h4>کیفیت مداوم</h4>
+        <p>ارتقاء روزانه فرمول و کیفیت محصولات برای بهترین طعم</p>
+      </div>
+    </div>
+    <div class="brand-desc">
+      <strong>ZHAMBIST</strong> برندی است که با هدف ارائه تغذیه پروتئینی سالم به خانواده‌های ایرانی تأسیس شده. باور ما اینه که سوسیس و کالباس باکیفیت نباید یه کالای لوکس باشه — باید روی سفره‌ی همه باشه. هر محصول ZHAMBIST با دقت، دانش و عشق ساخته می‌شه.
+    </div>
+  </div>
+</section>
+
+<hr class="gold-rule">
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">نمونه محصولات</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="products-grid">
+      <div class="product-item">
+        <div class="product-emoji">🌭</div>
+        <h4>سوسیس</h4>
+        <p>انواع سوسیس تخصصی</p>
+      </div>
+      <div class="product-item">
+        <div class="product-emoji">🥪</div>
+        <h4>کالباس</h4>
+        <p>کالباس با کیفیت بالا</p>
+      </div>
+      <div class="product-item">
+        <div class="product-emoji">🥩</div>
+        <h4>محصولات پروتئینی</h4>
+        <p>تولیدات کارگاهی سالم</p>
+      </div>
+      <div class="product-item">
+        <div class="product-emoji">🥐</div>
+        <h4>شیرینی و کیک</h4>
+        <p>سنتی و مدرن</p>
+      </div>
+      <div class="product-item">
+        <div class="product-emoji">🍱</div>
+        <h4>فینگرفود</h4>
+        <p>برای مجالس و جشن‌ها</p>
+      </div>
+      <div class="product-item">
+        <div class="product-emoji">🍛</div>
+        <h4>غذای خانگی</h4>
+        <p>ایرانی و بین‌المللی</p>
+      </div>
+    </div>
+    <div class="products-note">
+      <strong>تغذیه سالم، حق هر خانواده‌ست</strong> — تمام محصولات پروتئینی با مواد اولیه باکیفیت و بدون مواد مضر تهیه می‌شوند.
+    </div>
+  </div>
+</section>
+
+<hr class="gold-rule">
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">تماس و سفارش</span>
+      <div class="section-line"></div>
+    </div>
+    <div style="max-width:520px; margin: 0 auto;">
+      <h2 style="font-size:1.6rem; font-weight:700; margin-bottom:1rem;">بیایید با هم کار کنیم</h2>
+      <p style="font-size:14px; color:var(--text-muted); line-height:1.9; margin-bottom:1.5rem;">
+        برای سفارش آشپزی، شیرینی‌پزی یا محصولات پروتئینی مستقیم با من تماس بگیرید.
+      </p>
+      <div class="contact-items">
+        <div class="contact-item">
+          <span class="contact-item-icon">📞</span>
+          <div>
+            <span class="contact-item-label">شماره تماس اول</span>
+            <span class="contact-item-value">09151250278</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-icon">📱</span>
+          <div>
+            <span class="contact-item-label">شماره تماس دوم</span>
+            <span class="contact-item-value">09158158087</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-icon">📍</span>
+          <div>
+            <span class="contact-item-label">شهر</span>
+            <span class="contact-item-value" style="direction:rtl">مشهد، ایران</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>اعظم یزدی‌نژاد · کارشناس آشپزی بین‌الملل · مشهد &nbsp;|&nbsp; ۰۹۱۵۱۲۵۰۲۷۸</p>
+</footer>
+
+<script>
+</body>
+</html>
+</script>
